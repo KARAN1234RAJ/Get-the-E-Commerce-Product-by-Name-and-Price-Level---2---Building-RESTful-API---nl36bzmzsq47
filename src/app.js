@@ -17,11 +17,13 @@ app.get("/api/v1/products/:id", (req, res) => {
   if (singleProduct) {
     res
       .status(200)
-      .send({ status: "success", message: "Product found", data: singleProduct });
+      .send({
+        status: "success",
+        message: "Product fetched successfully",
+        data: singleProduct,
+      });
   } else {
-    res
-      .status(404)
-      .send({ status: "failed", message: "Product not found" });
+    res.status(404).send({ status: "failed", message: "Product not found" });
   }
 });
 
