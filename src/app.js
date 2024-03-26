@@ -13,8 +13,8 @@ app.use(express.json());
 app.get("/api/v1/products/:id", (req, res) => {
   const productId = req.params.id;
   // console.log(productId);
-  let singleProduct = products.find((item) => item.id == productId);
-  if (singleProduct) {
+  let singleProduct = products.filter((item) => item.id == productId);
+  if (singleProduct.length>0) {
     res
       .status(200)
       .send({
