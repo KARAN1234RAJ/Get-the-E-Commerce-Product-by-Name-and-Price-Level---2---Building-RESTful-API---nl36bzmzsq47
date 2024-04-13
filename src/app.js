@@ -12,10 +12,10 @@ app.use(express.json());
 //// Endpoint - /api/v1/products/:id
 app.get("/api/v1/products/:id", (req, res) => {
   const productId = parseInt(req.params.id, 10); // Converting string to integer using base-10 number system
- // console.log(productId);
-  let singleProduct = products.filter((item) => item.id === productId);
- // console.log(singleProduct.length);
-  if (singleProduct.length>0) {
+  // console.log(productId);
+  const singleProduct = products.find((item) => item.id === productId);
+  // console.log(singleProduct.length);
+  if (singleProduct) {
     res
       .status(200)
       .send({
